@@ -8,6 +8,7 @@ class Main{
     public String state = "";
 
     Scanner scanInt = new Scanner(System.in);
+    Scanner scanStr = new Scanner(System.in);
 
     public static void main(String[] args) {
         
@@ -51,8 +52,41 @@ class Main{
         this.state = this.menuOptions[option - 1];
         
         System.out.println("Selected Page: " + this.state);
+        render_state();
 
 
+    }
+
+    public void render_state(){
+
+        if( this.state.equals("Login")){
+            login();
+        }else if (this.state.equals("Register")){
+
+        }else if (this.state.equals("Exit")){
+
+        }
+
+    }
+
+    public void login(){
+        
+        String username = "";
+        String password = "";
+        
+        System.out.println(loginContent(username,password));
+        username = scanStr.nextLine();
+        System.out.println(loginContent(username,password));
+        password = scanStr.nextLine();
+        System.out.println(loginContent(username,password));
+
+
+    }
+
+    public String loginContent(String username,String password){
+        return "\n\n\n|||        Login        |||"   + "\n" +
+        "| Username: "  + username   + "\n" +
+        "| Password: "  + password  +"\n";
     }
 
 }
