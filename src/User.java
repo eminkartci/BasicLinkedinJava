@@ -42,7 +42,7 @@ public class User {
 
             }
 
-
+            br.close();
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -65,6 +65,8 @@ public class User {
                 line = x.ID + " " + x.username + " " + x.password + "\n";
                 bw.write(line);
             }
+
+            bw.close();
 
         } catch (IOException e) {
             // TODO Auto-generated catch block

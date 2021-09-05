@@ -21,7 +21,7 @@ class Main{
         app.init();
         app.welcome();
         app.menu();
-
+        app.quit();
     }
 
     public void welcome(){
@@ -77,6 +77,10 @@ class Main{
 
     public void init(){
         this.users = User.load_users();
+    }
+
+    public void quit(){
+        User.save_users(this.users);
     }
 
     public void login(){
