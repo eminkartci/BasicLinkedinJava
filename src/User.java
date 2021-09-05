@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class User {
 
@@ -22,7 +23,9 @@ public class User {
     }
 
     // STATIC METHODS
-    public static void load_users(){
+    public static ArrayList<User> load_users(){
+
+        ArrayList<User> users = new ArrayList<User>();
 
         try {
             
@@ -33,7 +36,8 @@ public class User {
                 
                 String[] userInfo = line.split(" ");
                 User tempUser = new User(Integer.parseInt(userInfo[0]), userInfo[1],userInfo[2]);
-                System.out.println(tempUser);
+                users.add(tempUser);
+
             }
 
 
@@ -43,6 +47,8 @@ public class User {
         } catch (IOException e){
             e.printStackTrace();
         }
+
+        return users;
 
     }
     
