@@ -30,7 +30,10 @@ public class User {
             String line = "";
 
             while((line = br.readLine()) != null ){
-                System.out.println(line);
+                
+                String[] userInfo = line.split(" ");
+                User tempUser = new User(Integer.parseInt(userInfo[0]), userInfo[1],userInfo[2]);
+                System.out.println(tempUser);
             }
 
 
