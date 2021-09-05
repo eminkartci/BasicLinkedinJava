@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 class Main{
@@ -6,6 +7,8 @@ class Main{
     public String[] devs = {"Emin Kartci","Cem Özkul"};
     public String[] menuOptions = {"Login","Register","Exit"};
     public String state = "";
+    public ArrayList<User> users = new ArrayList<User>();
+    public User cUser = null;
 
     Scanner scanInt = new Scanner(System.in);
     Scanner scanStr = new Scanner(System.in);
@@ -69,6 +72,10 @@ class Main{
 
     }
 
+    public void init(){
+        this.users = User.load_users();
+    }
+
     public void login(){
         
         String username = "";
@@ -80,7 +87,28 @@ class Main{
         password = scanStr.nextLine();
         System.out.println(loginContent(username,password));
 
+        User tempUser = new User(-1,username,password);
 
+
+    }
+
+
+    private void checkUserPassword(User u){
+
+        for(int i = 0 ; i < this.users.size() ; i++){
+
+            if(this.users.get(i).username.equals(u.username) && this.users.get(i).password.equals(u.password)){
+
+                System.out.println("Login Successfull !!\n Welcome " + u.username);
+                this.cUser = u;
+                return;
+            }
+
+        }
+
+        System.out.println("There is no such a user or your password is wrong !!");
+        this.cUser = null;
+        
     }
 
     public String loginContent(String username,String password){
@@ -89,6 +117,6 @@ class Main{
         "| Password: "  + password  +"\n";
     }
 
-    
+
 
 }
