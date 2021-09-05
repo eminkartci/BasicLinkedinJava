@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -53,6 +55,24 @@ public class User {
 
     }
     
+    public static void save_users(ArrayList<User> users){
+
+        try {
+            
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(USERS_PATH)));
+            String line = "";
+            for(User x : users){
+                line = x.ID + " " + x.username + " " + x.password + "\n";
+                bw.write(line);
+            }
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
     // Attribute
     int ID;
     String username;

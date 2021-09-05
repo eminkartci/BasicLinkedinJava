@@ -68,7 +68,7 @@ class Main{
         if( this.state.equals("Login")){
             login();
         }else if (this.state.equals("Register")){
-
+            register();
         }else if (this.state.equals("Exit")){
 
         }
@@ -103,7 +103,6 @@ class Main{
     public void register(){
 
         System.out.println("Username: "); String newUserName = this.scanStr.nextLine();
-        System.out.println("Password: "); String newPassword = this.scanStr.nextLine();
 
         while(!isUsernameAvailabe(newUserName)){
             System.out.println("Username: "); newUserName = this.scanStr.nextLine();
@@ -112,6 +111,8 @@ class Main{
                 break;
             }
         }
+
+        System.out.println("Password: "); String newPassword = this.scanStr.nextLine();
 
         User newUser = new User(this.users.size(),newUserName,newPassword);
         this.users.add(newUser);
