@@ -1,6 +1,8 @@
 
-
 public class User {
+
+    // CONSTANTS
+    String USERS_PATH = "src/users.txt";
 
     // MAIN
     public static void main(String[] args) {
@@ -9,6 +11,13 @@ public class User {
         User user2 = new User(1,"cemozkul","321321");
         System.out.println(user1);
         System.out.println(user2);
+    }
+
+    // STATIC METHODS
+    public static void load_users(){
+
+
+
     }
     
     // Attribute
