@@ -97,9 +97,34 @@ class Main{
             checkUserPassword(tempUser);
 
        }
-        
+
+    }
+
+    public void register(){
+
+        System.out.println("Username: "); String newUserName = this.scanStr.nextLine();
+        System.out.println("Password: "); String newPassword = this.scanStr.nextLine();
+
+        while(!isUsernameAvailabe(newUserName)){
+            System.out.println("Username: "); newUserName = this.scanStr.nextLine();
+
+            if(newUserName.equals("q")){
+                break;
+            }
+        }
 
 
+    }
+
+    public boolean isUsernameAvailabe(String un){
+
+        for(User u : this.users){
+            if(u.username.equals(un)){
+                System.out.println("This username is already used.");
+                return false;
+            }
+        }
+        return true;
     }
 
 
