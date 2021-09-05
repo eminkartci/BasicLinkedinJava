@@ -9,6 +9,7 @@ class Main{
     public String state = "";
     public ArrayList<User> users = new ArrayList<User>();
     public User cUser = null;
+    public boolean isActive;
 
     Scanner scanInt = new Scanner(System.in);
     Scanner scanStr = new Scanner(System.in);
@@ -16,6 +17,7 @@ class Main{
     public static void main(String[] args) {
         
         Main app = new Main();
+        app.activateProgram();
         app.welcome();
         app.menu();
 
@@ -78,16 +80,23 @@ class Main{
 
     public void login(){
         
-        String username = "";
-        String password = "";
-        
-        System.out.println(loginContent(username,password));
-        username = scanStr.nextLine();
-        System.out.println(loginContent(username,password));
-        password = scanStr.nextLine();
-        System.out.println(loginContent(username,password));
+       
+       while(this.isActive || (this.cUser == null)){
 
-        User tempUser = new User(-1,username,password);
+            String username = "";
+            String password = "";
+            
+            System.out.println(loginContent(username,password));
+            username = scanStr.nextLine();
+            System.out.println(loginContent(username,password));
+            password = scanStr.nextLine();
+            System.out.println(loginContent(username,password));
+
+            User tempUser = new User(-1,username,password);
+            checkUserPassword(tempUser);
+            
+       }
+        
 
 
     }
@@ -115,6 +124,14 @@ class Main{
         return "\n\n\n|||        Login        |||"   + "\n" +
         "| Username: "  + username   + "\n" +
         "| Password: "  + password  +"\n";
+    }
+
+    public void activateProgram(){
+        this.isActive = true;
+    }
+
+    public void deactivateProgram(){
+        this.isActive = false;
     }
 
 
