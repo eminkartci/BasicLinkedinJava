@@ -18,6 +18,7 @@ class Main{
         
         Main app = new Main();
         app.activateProgram();
+        app.init();
         app.welcome();
         app.menu();
 
@@ -81,7 +82,7 @@ class Main{
     public void login(){
         
        
-       while(this.isActive || (this.cUser == null)){
+       while(this.isActive && (this.cUser == null)){
 
             String username = "";
             String password = "";
@@ -94,7 +95,7 @@ class Main{
 
             User tempUser = new User(-1,username,password);
             checkUserPassword(tempUser);
-            
+
        }
         
 
