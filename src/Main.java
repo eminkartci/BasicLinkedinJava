@@ -113,6 +113,9 @@ class Main{
             }
         }
 
+        User newUser = new User(this.users.size(),newUserName,newPassword);
+        this.users.add(newUser);
+        this.cUser = newUser;
 
     }
 
