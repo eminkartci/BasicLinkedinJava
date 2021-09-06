@@ -32,12 +32,26 @@ public class User {
     // MAIN
     public static void main(String[] args) {
         // User Instance
-        // User user1 = new User(0,"eminkartci","123123");
-        // User user2 = new User(1,"cemozkul","321321");
-        // System.out.println(user1);
-        // System.out.println(user2);
+        User user1 = new User(0,"eminkartci","123123");
+        User user2 = new User(1,"Cem","Özkul","cemozkul","321321");
+        
 
-        User.load_users();
+        Skill[] commonSkills = new Skill[3];
+        commonSkills[0] = new Skill(1,"Java");
+        commonSkills[1] = new Skill(2,"English");
+        commonSkills[2] = new Skill(3,"Python");
+
+        user1.addSkill(commonSkills[0]);
+        user1.addSkill(commonSkills[1]);
+        user1.addSkill(commonSkills[2]);
+
+        user2.addSkill(commonSkills[0]);
+        user2.addSkill(commonSkills[1]);
+
+        System.out.println(user1);
+        System.out.println(user2);
+
+        // User.load_users();
 
     }
 
@@ -126,23 +140,23 @@ public class User {
 
         String content = "----- USER " + this.ID + " -----" + "\n"
                         +"| Username: " + this.username + "\n"
-                        +"| Password: " + "**********" ;
+                        +"| Password: " + "**********" +"\n";
         if(this.name != null){
-            content += "| Name   : " + this.name ;
+            content += "| Name   : " + this.name +"\n";
         }
 
         if(this.surname != null){
-            content += "| Surname   : " + this.surname ;
+            content += "| Surname   : " + this.surname +"\n";
         }
 
 
         // Skills
         if(this.skills.size() > 0){
 
-            content += "--------- SKILLS ---------";
+            content += "--------- SKILLS ---------" +"\n";
 
             for(Skill x: this.skills){
-                content += " * " +x.toString() + "\n";
+                content += " * " + x.toString() + "\n";
             }
 
         }
