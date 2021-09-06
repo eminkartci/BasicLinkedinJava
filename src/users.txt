@@ -1,6 +1,2 @@
-0 eminkartci 123123
-1 cemozkul 123333
-2 eztezer 112342
-3 durmiskartci 142342
-4 muhammedfk 3245325
-5 boratezer 2345243
+0 eminkartci 123123 1x2x3x
+1 cemozkul 321321 Cem Özkul 1x2x

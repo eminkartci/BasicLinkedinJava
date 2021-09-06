@@ -32,6 +32,7 @@ public class User {
     // MAIN
     public static void main(String[] args) {
         // User Instance
+        ArrayList<User> users = new ArrayList<User>();
         User user1 = new User(0,"eminkartci","123123");
         User user2 = new User(1,"Cem","Özkul","cemozkul","321321");
         
@@ -51,6 +52,9 @@ public class User {
         System.out.println(user1);
         System.out.println(user2);
 
+        users.add(user1);
+        users.add(user2);
+        User.save_users(users);
         // User.load_users();
 
     }
@@ -68,7 +72,14 @@ public class User {
             while((line = br.readLine()) != null ){
                 
                 String[] userInfo = line.split(" ");
-                User tempUser = new User(Integer.parseInt(userInfo[0]), userInfo[1],userInfo[2]);
+                User tempUser = null;
+
+                if(userInfo.length  == 4){
+                    tempUser = new User(Integer.parseInt(userInfo[0]), userInfo[1],userInfo[2]);
+                }else if(userInfo.length == 6){
+                    tempUser = new User(Integer.parseInt(userInfo[0]),userInfo[3],userInfo[4], userInfo[1],userInfo[2]);
+                }
+                
                 users.add(tempUser);
 
             }
@@ -92,7 +103,7 @@ public class User {
             
             BufferedWriter bw = new BufferedWriter(new FileWriter(new File(USERS_PATH)));
             for(User x : users){
-                bw.write(x.saveString());
+                bw.write(x.saveString() + "\n");
             }
 
             bw.close();
@@ -154,6 +165,7 @@ public class User {
             content+= this.skills.get(i).ID + "x";
         }
 
+        return content;
     }
 
     public String toString(){
