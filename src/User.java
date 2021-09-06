@@ -118,10 +118,34 @@ public class User {
     }
 
     // Behaviours
+    public void addSkill(Skill s){
+        this.skills.add(s);
+    }
+
     public String toString(){
+
         String content = "----- USER " + this.ID + " -----" + "\n"
                         +"| Username: " + this.username + "\n"
                         +"| Password: " + "**********" ;
+        if(this.name != null){
+            content += "| Name   : " + this.name ;
+        }
+
+        if(this.surname != null){
+            content += "| Surname   : " + this.surname ;
+        }
+
+
+        // Skills
+        if(this.skills.size() > 0){
+
+            content += "--------- SKILLS ---------";
+
+            for(Skill x: this.skills){
+                content += " * " +x.toString() + "\n";
+            }
+
+        }
 
         return content;
     }
