@@ -9,19 +9,19 @@ import java.util.ArrayList;
 
 
 // TODO:
-// 1 - Name Surname
-// 2 - About
-// 3 - Profession
-// 4 - Company
-// 5 - Email
-// 6 - Phone No
-// 7 - isOpen2Job
-// 8 - reviewCount
-// 9 - experience
-// 10 - education
-// 11 - skills
-// 12 - interests
-// 13 - Birthday
+// 1    - Name Surname 
+// 2    - About
+// 3    - Profession
+// 4    - Company
+// 5    - Email
+// 6    - Phone No
+// 7    - isOpen2Job
+// 8    - reviewCount
+// 9    - experience
+// 10   - education
+// 11   - skills
+// 12   - interests
+// 13   - Birthday
 
 
 public class User {
@@ -96,6 +96,7 @@ public class User {
     int ID;
     String username;
     String password;
+    String name,surname;
 
     // Constructor
     public User(int ID,String username,String password){
@@ -103,6 +104,16 @@ public class User {
         this.ID = ID;
         this.username = username;
         this.password = password;
+
+    }
+
+    public User(int ID,String name,String surname,String username,String password){
+        
+        this.ID         = ID;
+        this.name       = name;
+        this.surname    = surname;
+        this.username   = username;
+        this.password   = password;
 
     }
 
