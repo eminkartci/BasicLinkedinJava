@@ -70,7 +70,7 @@ class Main{
         }else if (this.state.equals("Register")){
             register();
         }else if (this.state.equals("Exit")){
-
+            quit();
         }
 
     }

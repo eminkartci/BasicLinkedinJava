@@ -7,6 +7,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+
+// TODO:
+// 1 - Name Surname
+// 2 - About
+// 3 - Profession
+// 4 - Company
+// 5 - Email
+// 6 - Phone No
+// 7 - isOpen2Job
+// 8 - reviewCount
+// 9 - experience
+// 10 - education
+// 11 - skills
+// 12 - interests
+// 13 - Birthday
+
+
 public class User {
 
     // CONSTANTS
