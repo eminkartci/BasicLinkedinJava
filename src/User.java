@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 
 // TODO:
-// 1    - Name Surname 
+// 1    - Name Surname ++
 // 2    - About
 // 3    - Profession
 // 4    - Company
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 // 8    - reviewCount
 // 9    - experience
 // 10   - education
-// 11   - skills
+// 11   - skills --
 // 12   - interests
 // 13   - Birthday
 
@@ -124,6 +124,23 @@ public class User {
                         +"| Password: " + "**********" ;
 
         return content;
+    }
+
+}
+
+
+class Skill{
+
+    // Attribute
+    int ID;
+    String title;
+    String description;
+    float rating;
+
+    // Constructor
+    public Skill(int ID,String title){
+        this.ID     = ID;
+        this.title  = title;
     }
 
 }
