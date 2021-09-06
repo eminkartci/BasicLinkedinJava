@@ -181,4 +181,10 @@ class Skill{
         this.title  = title;
     }
 
+    // Behaviour
+
+    public String toString(){
+        return this.title;
+    }
+
 }
