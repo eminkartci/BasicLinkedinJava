@@ -97,6 +97,7 @@ public class User {
     String username;
     String password;
     String name,surname;
+    ArrayList<Skill> skills;
 
     // Constructor
     public User(int ID,String username,String password){
@@ -104,16 +105,15 @@ public class User {
         this.ID = ID;
         this.username = username;
         this.password = password;
+        skills        = new ArrayList<Skill>();
 
     }
 
     public User(int ID,String name,String surname,String username,String password){
         
-        this.ID         = ID;
+        this(ID,username,password);
         this.name       = name;
         this.surname    = surname;
-        this.username   = username;
-        this.password   = password;
 
     }
 
