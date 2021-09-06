@@ -31,31 +31,32 @@ public class User {
 
     // MAIN
     public static void main(String[] args) {
-        // User Instance
-        ArrayList<User> users = new ArrayList<User>();
-        User user1 = new User(0,"eminkartci","123123");
-        User user2 = new User(1,"Cem","Özkul","cemozkul","321321");
+        // // User Instance
+        // ArrayList<User> users = new ArrayList<User>();
+        // User user1 = new User(0,"eminkartci","123123");
+        // User user2 = new User(1,"Cem","Özkul","cemozkul","321321");
         
 
-        Skill[] commonSkills = new Skill[3];
-        commonSkills[0] = new Skill(1,"Java");
-        commonSkills[1] = new Skill(2,"English");
-        commonSkills[2] = new Skill(3,"Python");
+        // Skill[] commonSkills = new Skill[3];
+        // commonSkills[0] = new Skill(1,"Java");
+        // commonSkills[1] = new Skill(2,"English");
+        // commonSkills[2] = new Skill(3,"Python");
 
-        user1.addSkill(commonSkills[0]);
-        user1.addSkill(commonSkills[1]);
-        user1.addSkill(commonSkills[2]);
+        // user1.addSkill(commonSkills[0]);
+        // user1.addSkill(commonSkills[1]);
+        // user1.addSkill(commonSkills[2]);
 
-        user2.addSkill(commonSkills[0]);
-        user2.addSkill(commonSkills[1]);
+        // user2.addSkill(commonSkills[0]);
+        // user2.addSkill(commonSkills[1]);
 
-        System.out.println(user1);
-        System.out.println(user2);
+        // System.out.println(user1);
+        // System.out.println(user2);
 
-        users.add(user1);
-        users.add(user2);
-        User.save_users(users);
-        // User.load_users();
+        // users.add(user1);
+        // users.add(user2);
+        // User.save_users(users);
+        ArrayList<User> users = User.load_users();
+        System.out.println(users);
 
     }
 
