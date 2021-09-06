@@ -19,7 +19,7 @@ import java.util.ArrayList;
 // 8    - reviewCount
 // 9    - experience
 // 10   - education
-// 11   - skills --
+// 11   - skills ++
 // 12   - interests
 // 13   - Birthday
 
@@ -91,10 +91,8 @@ public class User {
         try {
             
             BufferedWriter bw = new BufferedWriter(new FileWriter(new File(USERS_PATH)));
-            String line = "";
             for(User x : users){
-                line = x.ID + " " + x.username + " " + x.password + "\n";
-                bw.write(line);
+                bw.write(x.saveString());
             }
 
             bw.close();
@@ -134,6 +132,28 @@ public class User {
     // Behaviours
     public void addSkill(Skill s){
         this.skills.add(s);
+    }
+
+    public String saveString(){
+
+        String content = "";
+
+        content += this.ID + " " + this.username + " " + this.password;
+
+        if(this.name != null){
+            content+= " " + this.name;
+        }
+
+        if(this.surname != null){
+            content+= " " + this.surname;
+        }
+
+        // Skills
+        content+= " ";
+        for(int i = 0 ; i < this.skills.size() ; i++){
+            content+= this.skills.get(i).ID + "x";
+        }
+
     }
 
     public String toString(){
