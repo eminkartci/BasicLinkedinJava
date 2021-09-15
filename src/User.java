@@ -22,6 +22,7 @@
 	// 11   - skills ++
 	// 12   - interests
 	// 13   - Birthday--
+    // 14   - Company Class -> Expreinces - Company attribute
 
 
 	public class User {
@@ -55,6 +56,7 @@
 	        // users.add(user1);
 	        // users.add(user2);
 	        // User.save_users(users);
+
 	        ArrayList<User> users = User.load_users();
 	        System.out.println(users);
 
@@ -125,9 +127,9 @@
 	    String profesion, company;
 	    String e_mail, phone_num;
 	    Boolean open2job = false;
-	    String birthday;
+	    Birthday birthday;
 	    ArrayList<Skill> skills;
-	   // ArrayList<Experience> experiences;
+	    ArrayList<Experience> experiences;
 
 	    // Constructor
 	    public User(int ID,String username,String password){
@@ -136,7 +138,7 @@
 	        this.username = username;
 	        this.password = password;
 	        skills        = new ArrayList<Skill>();
-	      //  experiences    = new ArrayList<Experience>();
+	        experiences    = new ArrayList<Experience>();
 
 	    }
 
@@ -178,9 +180,9 @@
 	        this.skills.add(s);
 	    }
 	    
-	  //public void addExperience(Experience e) {
-	    //	this.experiences.add(s);
-	   // }
+        public void addExperience(Experience e) {
+                this.experiences.add(e);
+        }
 
 	    public String saveString(){
 
@@ -276,69 +278,69 @@
 	}
 
 
-	class Skill{
+class Skill{
 
-	    // Attribute
-	    int ID;
-	    String title;
-	    String description;
-	    float rating;
+    // Attribute
+    int ID;
+    String title;
+    String description;
+    float rating;
 
-	    // Constructor
-	    public Skill(int ID,String title){
-	        this.ID     = ID;
-	        this.title  = title;
-	    }
-
-	    // Behaviour
-
-	    public String toString(){
-	        return this.title;
-	    }
-
-	}
-	
-	class experience{
-
-        // Attributes
-		int ID;
-		String title;
-		String description;
-		float rating;
-		
-        // Constructor
-		public experience(int ID, String title) {
-			this.ID     = ID;
-	        this.title  = title;
-		}
-
-
-        // Behaviours
-        public String toString(){
-            return this.title;
-        }
-
-		
-	}
-
-    class birthday{
-
-        // Attributes
-        int user_id;
-        String day, month, year;
-
-        // Constructor
-        public birthday(int user_id, String day, String month, String year) {
-            
-            this.user_id     = user_id;
-            this.day = day;
-            this.month     = month;
-            this.year     = year;
-        }
-
-        // Behavior
-        public String toString(){
-            return day +" / " + month + " / " + year;
-        }
-
+    // Constructor
+    public Skill(int ID,String title){
+        this.ID     = ID;
+        this.title  = title;
     }
+
+    // Behaviour
+
+    public String toString(){
+        return this.title;
+    }
+
+}
+	
+class Experience{
+
+    // Attributes
+    int ID;
+    String title;
+    String description;
+    float rating;
+    
+    // Constructor
+    public Experience(int ID, String title) {
+        this.ID     = ID;
+        this.title  = title;
+    }
+
+
+    // Behaviours
+    public String toString(){
+        return this.title;
+    }
+
+    
+}
+
+class Birthday{
+
+    // Attributes
+    int user_id;
+    String day, month, year;
+
+    // Constructor
+    public Birthday(int user_id, String day, String month, String year) {
+        
+        this.user_id     = user_id;
+        this.day = day;
+        this.month     = month;
+        this.year     = year;
+    }
+
+    // Behavior
+    public String toString(){
+        return day +" / " + month + " / " + year;
+    }
+
+}
