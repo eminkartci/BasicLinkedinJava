@@ -29,38 +29,60 @@
 
 	    // CONSTANTS
 	    static String USERS_PATH = "src/users.txt";
+		static String DELIMINATOR = ",";
 
 	    // MAIN
 	    public static void main(String[] args) {
-	        // // User Instance
-	        // ArrayList<User> users = new ArrayList<User>();
-	        // User user1 = new User(0,"eminkartci","123123");
-	        // User user2 = new User(1,"Cem","Özkul","cemozkul","321321");
+	        
+			manuel_users();
 	        
 
-	        // Skill[] commonSkills = new Skill[3];
-	        // commonSkills[0] = new Skill(1,"Java");
-	        // commonSkills[1] = new Skill(2,"English");
-	        // commonSkills[2] = new Skill(3,"Python");
-
-	        // user1.addSkill(commonSkills[0]);
-	        // user1.addSkill(commonSkills[1]);
-	        // user1.addSkill(commonSkills[2]);
-
-	        // user2.addSkill(commonSkills[0]);
-	        // user2.addSkill(commonSkills[1]);
-
-	        // System.out.println(user1);
-	        // System.out.println(user2);
-
-	        // users.add(user1);
-	        // users.add(user2);
-	        // User.save_users(users);
-
-	        ArrayList<User> users = User.load_users();
-	        System.out.println(users);
-
 	    }
+
+		public static void load_users_fromUSERS_PATH(){
+			ArrayList<User> users = User.load_users();
+			User.save_users(users);
+	        System.out.println(users);
+		}
+
+		public static void manuel_users(){
+			// // User Instance
+	        ArrayList<User> users = new ArrayList<User>();
+
+			//int ID,String name,String surname,String username,String password, String about, String profesion, String company, String e_mail, String phone_num, Boolean open2job
+	        User user1 = new User(0,"Emin","Kartci","eminkartci","123123","I'm an software and electrical engineer","Energy Polyicymaker","ACELEREX - AMEAN","emin.kartci@ozu.edu.tr","05516094250",false);
+	        User user2 = new User(1,"Cem","Özkul","cemozkul","321321","I'm a student and currently an intern","Student - Intern","FIGO Para","cem.ozkul@ozu.edu.tr","05302869090",true);
+	        
+
+	        Skill[] commonSkills = new Skill[3];
+	        commonSkills[0] = new Skill(1,"Java");
+	        commonSkills[1] = new Skill(2,"English");
+	        commonSkills[2] = new Skill(3,"Python");
+
+	        user1.addSkill(commonSkills[0]);
+	        user1.addSkill(commonSkills[1]);
+	        user1.addSkill(commonSkills[2]);
+
+	        user2.addSkill(commonSkills[0]);
+	        user2.addSkill(commonSkills[1]);
+
+			Experience[] commonExpreinces = new Experience[3];
+			commonExpreinces[0] = new Experience(1, "Working for ACELEREX");
+			commonExpreinces[1] = new Experience(2, "Working for FIGO Para");
+			commonExpreinces[2] = new Experience(3, "Studying in OzU");
+
+			user1.addExperience(commonExpreinces[0]);
+			user1.addExperience(commonExpreinces[2]);
+			user2.addExperience(commonExpreinces[1]);
+			user2.addExperience(commonExpreinces[2]);
+
+	        System.out.println(user1);
+	        System.out.println(user2);
+
+	        users.add(user1);
+	        users.add(user2);
+	        User.save_users(users);
+		}
 
 	    // STATIC METHODS
 	    public static ArrayList<User> load_users(){
@@ -74,7 +96,7 @@
 
 	            while((line = br.readLine()) != null ){
 	                
-	                String[] userInfo = line.split(" ");
+	                String[] userInfo = line.split(DELIMINATOR);
 	                User tempUser = null;
 
 	                if(userInfo.length  == 4){
@@ -138,7 +160,7 @@
 	        this.username = username;
 	        this.password = password;
 	        skills        = new ArrayList<Skill>();
-	        experiences    = new ArrayList<Experience>();
+	        experiences   = new ArrayList<Experience>();
 
 	    }
 
@@ -188,39 +210,36 @@
 
 	        String content = "";
 
-	        content += this.ID + " " + this.username + " " + this.password;
+	        content += this.ID + DELIMINATOR + this.username + DELIMINATOR + this.password;
 
 	        if(this.name != null){
-	            content+= " " + this.name;
+	            content+= DELIMINATOR + this.name;
 	        }
 
 	        if(this.surname != null){
-	            content+= " " + this.surname;
+	            content+= DELIMINATOR + this.surname;
 	        }
 	        if(this.about != null) {
-	        	content += " " + this.about;
+	        	content += DELIMINATOR + this.about;
 	        }
 	        if(this.profesion != null) {
-	        	content += " " + this.profesion ;
+	        	content += DELIMINATOR + this.profesion ;
 	        }
 	        if(this.company != null) {
-	        	content += " " + this.company ;
-	        }
-	        if (this.profesion == "Student") {
-	        	this.company = null;	
+	        	content += DELIMINATOR + this.company ;
 	        }
 	        if(this.e_mail != null) {
-	        	content += " " + this.e_mail ;
+	        	content += DELIMINATOR + this.e_mail ;
 	        }
 	        if(this.phone_num != null) {
-	        	content += " " + this.phone_num ;
+	        	content += DELIMINATOR + this.phone_num ;
 	        }
 	        if(this.open2job) {
-	        	content += " " + this.open2job ;
+	        	content += DELIMINATOR + this.open2job ;
 	        }
 
 	        // Skills
-	        content+= " ";
+	        content+= DELIMINATOR;
 	        for(int i = 0 ; i < this.skills.size() ; i++){
 	            content+= this.skills.get(i).ID + "x";
 	        }
@@ -271,6 +290,18 @@
 	            }
 
 	        }
+
+			// Experience
+	        if(this.experiences.size() > 0){
+
+	            content += "--------- Experiences ---------" +"\n";
+
+	            for(Experience x: this.experiences){
+	                content += " + " + x.toString() + "\n";
+	            }
+
+	        }
+
 
 	        return content;
 	    }

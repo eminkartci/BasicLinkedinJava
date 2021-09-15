@@ -1,2 +1,2 @@
-0 eminkartci 123123 1x2x3x
-1 cemozkul 321321 Cem Özkul 1x2x
+0,eminkartci,123123,Emin,Kartci,I'm an software and electrical engineer,Energy Polyicymaker,ACELEREX - AMEAN,emin.kartci@ozu.edu.tr,05516094250,1x2x3x
+1,cemozkul,321321,Cem,Özkul,I'm a student and currently an intern,Student - Intern,FIGO Para,cem.ozkul@ozu.edu.tr,05302869090,true,1x2x
