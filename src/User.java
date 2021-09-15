@@ -28,7 +28,7 @@
 	public class User {
 
 	    // CONSTANTS
-	    static String USERS_PATH = "src/users.txt";
+	    static String USERS_PATH = "src/users.csv";
 		static String DELIMINATOR = ",";
 
 	    // MAIN
@@ -127,6 +127,9 @@
 	        try {
 	            
 	            BufferedWriter bw = new BufferedWriter(new FileWriter(new File(USERS_PATH)));
+				String titles = "USER ID,Username,Password,Name,Surname,About,Profession,Company,Mail,Phone,Open to Work,Skills,Experiences\n";
+				bw.write(titles);
+
 	            for(User x : users){
 	                bw.write(x.saveString() + "\n");
 	            }
@@ -234,14 +237,20 @@
 	        if(this.phone_num != null) {
 	        	content += DELIMINATOR + this.phone_num ;
 	        }
-	        if(this.open2job) {
-	        	content += DELIMINATOR + this.open2job ;
-	        }
+	        
+			content += DELIMINATOR + this.open2job ;
+	        
 
 	        // Skills
 	        content+= DELIMINATOR;
 	        for(int i = 0 ; i < this.skills.size() ; i++){
 	            content+= this.skills.get(i).ID + "x";
+	        }
+
+			// Experiences 
+	        content+= DELIMINATOR;
+	        for(int i = 0 ; i < this.experiences.size() ; i++){
+	            content+= this.experiences.get(i).ID + "x";
 	        }
 
 	        return content;

@@ -1,2 +1,3 @@
-0,eminkartci,123123,
-1,cemozkul,321321,Cem,Özkul,
+USER ID,Username,Password,Name,Surname,About,Profession,Company,Mail,Phone,Open to Work,Skills,Experiences
+0,eminkartci,123123,Emin,Kartci,I'm an software and electrical engineer,Energy Polyicymaker,ACELEREX - AMEAN,emin.kartci@ozu.edu.tr,5516094250,FALSE,1x2x3x,1x3x
+1,cemozkul,321321,Cem,Özkul,I'm a student and currently an intern,Student - Intern,FIGO Para,cem.ozkul@ozu.edu.tr,5302869090,TRUE,1x2x,2x3x
