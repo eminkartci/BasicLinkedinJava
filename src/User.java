@@ -124,7 +124,7 @@
 	    String about;
 	    String profesion, company;
 	    String e_mail, phone_num;
-	    Boolean open2job;
+	    Boolean open2job = false;
 	    String birthday;
 	    ArrayList<Skill> skills;
 	   // ArrayList<Experience> experiences;
@@ -213,7 +213,7 @@
 	        if(this.phone_num != null) {
 	        	content += " " + this.phone_num ;
 	        }
-	        if(this.open2job != null) {
+	        if(this.open2job) {
 	        	content += " " + this.open2job ;
 	        }
 
